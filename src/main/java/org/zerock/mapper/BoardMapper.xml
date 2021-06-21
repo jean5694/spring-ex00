@@ -7,16 +7,32 @@
 
   <select id="getList" resultType="org.zerock.domain.BoardVO">
     
+    <![CDATA[
+    
     SELECT 
-    	bno id,
+    	bno bno,
     	title title,
     	content content,
     	writer writer,
     	regdate regdate,
-    	updatedate updatedate
+    	updatedate updateDate
     
-    FROM tbl_board
+     FROM tbl_board
+     
+     WHERE bno > 0 ORDER BY bno DESC
+     
+    ]]>
     
   </select>
+  
+    <insert id="insert">
+  	INSERT INTO tbl_board (title, content, writer) 
+  	VALUES (#{title}, #{content}, #{writer})
+  	</insert>
+  
+    <insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="bno" keyColumn="bno">
+  	INSERT INTO tbl_board (title, content, writer)
+  	VALUES (#{title}, #{content}, #{writer})
+ 	 </insert>
   
 </mapper>
