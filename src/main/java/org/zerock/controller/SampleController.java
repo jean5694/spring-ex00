@@ -35,6 +35,7 @@ public class SampleController {
 	}
 	
 	// 128쪽
+	// 
 	@RequestMapping(value="/basic", method = {RequestMethod.GET, RequestMethod.POST})
 	public void basicGet() {
 		log.info("basic get.......................");
@@ -45,6 +46,7 @@ public class SampleController {
 		log.info("basic get only get....................");
 	}
 	
+	// 경로 여러개 설정할 시
 	@RequestMapping({"/basic3", "/basic4"})
 	public void basic3() {
 		log.info("basic3, basic4 ..............");

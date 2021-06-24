@@ -31,9 +31,13 @@ public class Ex04Controller {
 		log.info("ex04, sub02 method");
 		
 		log.info(date);
-	}
+	} 
+	// @RequestParam String 타입이므로 Date로 사용 불가능
+	// 변환이 필요함
 	
-	@InitBinder
+	
+	// @RequestMapping이 붙어있는 handler가 실행되기 직전에 실행됨
+	@InitBinder 
 	public void initBinder(WebDataBinder binder) {
 		log.info("init binder");
 		
