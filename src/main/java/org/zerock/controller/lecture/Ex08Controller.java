@@ -22,6 +22,8 @@ public class Ex08Controller {
 		model.addAttribute("age", 22);
 	}
 
+	
+	// 객체 생성시 사용하는 코드
 	@RequestMapping("/sub02")
 	public void method02(Model model) {
 		log.info("ex08, sub02 method");
@@ -41,8 +43,9 @@ public class Ex08Controller {
 		user.setId("korea");
 		user.setAge(5000);
 
-//		model.addAttribute("user", user);
+
 		model.addAttribute(user);
+//	 ==	model.addAttribute("user", user);
 
 		return "ex08/sub02";
 	}
