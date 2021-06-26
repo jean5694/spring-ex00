@@ -22,7 +22,7 @@ public class Ex09Controller {
 		rttr.addAttribute("id", 300);
 		
 		return ("redirect:sub02"); // 상대경로
-//		return ("redirect:/ex09/sub02"); // 절대경로
+	//	return ("redirect:/ex09/sub02"); // 절대경로
 	}
 
 	@RequestMapping("/sub02")

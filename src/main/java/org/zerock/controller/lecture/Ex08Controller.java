@@ -60,6 +60,7 @@ public class Ex08Controller {
 		return "ex08/sub02";
 	}
 
+	//@ModelAttribute("user") 
 	// http://localhost:8080/controller/ex08/sub05?id=jeju&age=9000
 	@RequestMapping("/sub05")
 	public String method05(@ModelAttribute("user") User user, Model model) {
@@ -94,7 +95,7 @@ public class Ex08Controller {
 		return "ex08/sub02";
 	}
 	
-	
+	// any other argument의 상황
 	// http://localhost:8080/controller/ex08/sub09?age=999&name=korea
 	@RequestMapping("/sub09")
 	public void method09(@ModelAttribute("age") int age,
