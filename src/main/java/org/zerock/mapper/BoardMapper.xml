@@ -25,14 +25,45 @@
     
   </select>
   
-    <insert id="insert">
+  <insert id="insert">
   	INSERT INTO tbl_board (title, content, writer) 
   	VALUES (#{title}, #{content}, #{writer})
-  	</insert>
+  </insert>
   
-    <insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="bno" keyColumn="bno">
+  <insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="bno" keyColumn="bno">
   	INSERT INTO tbl_board (title, content, writer)
   	VALUES (#{title}, #{content}, #{writer})
- 	 </insert>
+  </insert>
+ 	 
+  <select id="read" resultType="org.zerock.domain.BoardVO">
+  	SELECT 
+	  	 bno bno,
+	  	 title title,
+	  	 content content,
+	  	 writer writer,
+	  	 regdate regdate,
+	  	 updatedate updateDate
+  	FROM tbl_board
+  	WHERE bno = #{bno}
+  </select>
+ 
+  <delete id="delete">
+  	DELETE FROM tbl_board WHERE bno = #{bno}
+  </delete>
+  
+  
+  <update id="update">
+  	UPDATE tbl_board
+
+  	SET
+  	    title = #{title}, 
+  	    content = #{content},
+  	    writer = #{writer},
+  	    updateDate = NOW()
+
+  	WHERE bno = #{bno}
+
+  </update>
+ 	 
   
 </mapper>
