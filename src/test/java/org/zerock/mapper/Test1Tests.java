@@ -51,12 +51,15 @@ public class Test1Tests {
 	@Test
 	public void testInsert() {
 		Test1VO test = new Test1VO();
-		test.setName("newbie");
-		test.setAge(99);
+		test.setName("zara");
+		test.setAge(57);
 
-		int cnt = mapper.insert(test);
+		int before = mapper.getList().size();
+		
+		mapper.insert(test);
 
-		assertEquals(1, cnt);
+		int after = mapper.getList().size();
+		assertEquals(before + 1, after);
 	}
 	
 	@Test
