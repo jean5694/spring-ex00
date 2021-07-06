@@ -4,13 +4,17 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 
 public interface BoardMapper {
 
 //	@Select("SELECT * FROM tbl_board") 
 // 쿼리가 여러 줄이 될 경우, 관리하기가 어려우니
 // 따로 관리할 수 있는 파일을 만들어 둘 것
-	public List<BoardVO> getList();
+		public List<BoardVO> getList();
+		
+		// Criteria = int amount , int pageNum
+		public List<BoardVO> getListWithPaging(Criteria cri);
 	
 	// INSERT INTO tbl_board (title, content, writer) 
 		// VALUES (#{title}, #{content}, #{writer})
