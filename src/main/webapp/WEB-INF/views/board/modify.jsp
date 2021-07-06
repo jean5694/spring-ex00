@@ -36,17 +36,19 @@
 
 		<div class="row">
 			<div class="col-12">
-				<form id="modify-form1" action="${appRoot }/board/modify"
-					method="post">
+				<form id="modify-form1" action="${appRoot }/board/modify" method="post">
 					<input hidden name="bno" value="${board.bno }" />
+					
 					<div class="form-group">
 						<label for="input1">제목</label> 
 						<input id="input1" value="${board.title }" class="form-control" name="title">
 					</div>
+					
 					<div class="form-group">
 						<label for="textarea1">내용</label>
 						<textarea id="textarea1" class="form-control" name="content"><c:out value="${board.content }" /></textarea>
 					</div>
+					
 					<div class="form-group">
 						<label for="input2">작성자</label> 
 						<input readonly="readonly" value="${board.writer }" id="input2" class="form-control" name="writer">

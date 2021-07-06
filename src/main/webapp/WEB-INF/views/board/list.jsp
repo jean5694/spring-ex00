@@ -8,7 +8,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
-<title>Insert title here</title>
+<title>List</title>
 </head>
 
 
@@ -30,12 +30,13 @@
 			<c:forEach items="${list }" var="board">
 				<tr>
 					<td>${board.bno }</td>
+					
 					<td>
-					<a href="${appRoot }/board/get?bno=${board.bno}">
+					<a href="${appRoot }/board/get?bno=${board.bno}" target='_blank'>
 					${board.title }
 					</a>
-					
 					</td>
+					
 					<td>${board.writer }</td>
 					<td>
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }"/>
@@ -55,9 +56,15 @@
 $(document).ready(function() {
 	
 	if (history.state == null) {
+		console.log("어서와 처음이지!!!");
+		
 		$("#board-modal1").modal('show');
-		history.replaceState({}, null);
-	}
+		history.replaceState({}, null);		
+		
+		} else {	
+		console.log("너 전에 왔었어!!!!");
+		
+	} 
 	
 });
 </script>
