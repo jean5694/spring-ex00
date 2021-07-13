@@ -32,7 +32,7 @@ public class BoardController {
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) {
 		log.info("board/list method.....");
-		int total = 123; // TODO: 나중에 구하는 코드 작성해야 함
+		int total = 102; // TODO: 나중에 구하는 코드 작성해야 함
 		
 		
 		// service getList() 실행 결과를
@@ -61,7 +61,9 @@ public class BoardController {
 	}
 
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, 
+			@ModelAttribute("cri") Criteria cri, 
+			Model model) {
 		log.info("board/get method");
 
 		// service에게 일 시킴

@@ -13,7 +13,14 @@ CREATE TABLE tbl_board (
 
  -- 내용 입력
 INSERT INTO tbl_board (title, content, writer)
-VALUES ('test title', 'test content', 'user00');
+VALUES ('test title', 'test content', '
+
+
+
+
+
+
+user00');
 
 -- 조회
 SELECT * FROM tbl_board; 

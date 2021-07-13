@@ -2,7 +2,7 @@ USE spr1;
 
 SELECT * FROM tbl_board
 ORDER BY bno DESC
-LIMIT 5; -- 상위 5 개
+LIMIT 5; -- 상위 5 개 , 0 이상의 정수 
 
 SELECT * FROM tbl_board
 ORDER BY bno DESC
@@ -18,5 +18,5 @@ LIMIT 10, 5; -- 10번부터 상위 5 개 (3page)
 
 
 SELECT * FROM tbl_board
-ORDER BY bno DESC
+ORDER BY bno DESC 
 LIMIT 5 * (n-1) , 5; -- (n page)
