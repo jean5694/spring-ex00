@@ -34,7 +34,17 @@
 					<input readonly="readonly" id="input2" class="form-control" name="writer" value="${board.writer }">
 				</div>				
 				
-				<a class="btn btn-secondary" href="${appRoot }/board/modify?bno=${board.bno}">수정/삭제</a>
+		<%-- <a class="btn btn-secondary" href="${appRoot }/board/modify?bno=${board.bno}">수정/삭제</a> --%>
+		<!-- 수정/삭제 후 목록보기를 눌렀을 때 기존 목록으로 들어가기  -->
+			<c:url value="/board/modify" var="modifyUrl">
+					<c:param name="bno" value="${board.bno }" />
+					<c:param name="pageNum" value="${cri.pageNum }" />
+					<c:param name="amount" value="${cri.amount }" />
+				</c:url>
+
+				<a class="btn btn-secondary" href="${modifyUrl }">수정/삭제</a>
+			
+			
 			
 			</form>
 		</div>

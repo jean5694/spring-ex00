@@ -77,19 +77,23 @@ public class BoardController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		// request parameter 수집
 
 		// service 일 시킴
 		boolean success = service.modify(board);
 
-		// 결과를 모델(또는 FlashMap)에 넣고
+		// 리다이렉트에 결과를 addFlashAttribute로 모델(또는 FlashMap)에 담아 리다이렉트 진행
 		if (success) {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addFlashAttribute("messageTitle", "수정 완료");
 			rttr.addFlashAttribute("messageBody", "작성한 게시물이 수정되었습니다.");
 		}
 
+		// 리다이렉트 뒤에 쿼리스트링으로 붙일 때는 addAttribute 사용
+		rttr.addAttribute("pageNum", cri.getPageNum()); // pageNum이란 이름으로 cri.getPageNum()값 넣기
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		// forward or redirect
 		return "redirect:/board/list";
 	}
@@ -112,6 +116,7 @@ public class BoardController {
 
 	}
 
+	// cri 파라미터 값을 넣어 페이지에 대한 값을 입력해주기
 	@GetMapping("/register")
 	public void register(@ModelAttribute("cri") Criteria cri) {
 		// forward /WEB-INF/views/board/register.jsp

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!-- 목록보기 URL  -->
+<!-- 뒤로가기 혹은 버튼 클릭 후 기존 목록으로 돌아가기 URL  -->
 <c:url value="/board/list" var="listUrl">
 	<c:if test="${not empty pageMaker }" >
 		<c:param name="pageNum" value="${pageMaker.cri.pageNum }"></c:param>
@@ -14,7 +14,7 @@
 	</c:if>
 </c:url>
 
-<!-- 글쓰기 URL  -->
+<!-- 뒤로가기 혹은 버튼 클릭 후 기존 글쓰기로 돌아가기 URL  -->
 <c:url value="/board/register" var="registerUrl">
 	<c:if test="${not empty pageMaker }" >
 		<c:param name="pageNum" value="${pageMaker.cri.pageNum }"></c:param>
@@ -37,7 +37,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-     
+ 
+ <!--  c:url 설정한 값으로 href 링크 설정 -->    
         <a class="nav-link" href="${listUrl }"><i class="fas fa-list"></i> 목록보기</a>
       </li>
       <li class="nav-item">
