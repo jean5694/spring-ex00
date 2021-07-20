@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%-- 
 <!-- 뒤로가기 혹은 버튼 클릭 후 기존 목록으로 돌아가기 URL  -->
 <c:url value="/board/list" var="listUrl">
 	<c:if test="${not empty pageMaker }" >
@@ -24,8 +25,22 @@
 		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
 		<c:param name="amount" value="${cri.amount }"></c:param>
 	</c:if>
-</c:url>
+</c:url> 
+--%>
 
+<!-- 
+1. BoardController @Getmapping ("/list") 파라미터에 pageMaker를 대신하는 @모델어트리뷰트 ("cri") 값 입력 후
+2. 네브바에서 c:if 태그를 제거한 후 사용
+  -->
+	<c:url value="/board/list" var="listUrl">
+			<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+			<c:param name="amount" value="${cri.amount }"></c:param>
+	</c:url>
+	
+	<c:url value="/board/register" var="registerUrl">	
+			<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+			<c:param name="amount" value="${cri.amount }"></c:param>
+	</c:url>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">스프링 게시판</a>
