@@ -21,8 +21,8 @@ public class Ex02UploadController {
 		log.info(file.getOriginalFilename());
 		
 		
-		String bucketName = "choongang-sebaek1";
-		String profileName = "spring1";
+		String bucketName = "choongang-cozy";
+		String profileName = "spring1"; // credentials 파일에 저장한 자격정보의 프로필 명
 		S3Client s3 = S3Client.builder()
 				.credentialsProvider(ProfileCredentialsProvider.create(profileName))
 				.build();
