@@ -19,4 +19,4 @@ LIMIT 10, 5; -- 10번부터 상위 5 개 (3page)
 
 SELECT * FROM tbl_board
 ORDER BY bno DESC 
-LIMIT 5 * (n-1) , 5; -- (n page)
+-- LIMIT 5 * (n-1) , 5; -- (n page)
