@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-public class Test1Tests {
+public class Test1MapperTests {
 
 	/*
 	상세한 풀이는 BoardMapperTests 에서 확인 
