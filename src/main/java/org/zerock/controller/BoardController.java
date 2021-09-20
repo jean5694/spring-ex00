@@ -26,10 +26,12 @@ public class BoardController {
 
 	private BoardService service;
 
-	/*
-	 * @Autowired public BoardController(BoardService service) { this.service =
-	 * service; }
-	 */
+
+//	 @Autowired 
+//	  public BoardController(BoardService service) { 
+//		 this.service = service; 
+//	  }
+	 
 	@GetMapping("/list")
 	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("board/list method.....");
@@ -93,8 +95,9 @@ public class BoardController {
 		// 리다이렉트 뒤에 쿼리스트링으로 붙일 때는 addAttribute 사용
 		rttr.addAttribute("pageNum", cri.getPageNum()); // pageNum이란 이름으로 cri.getPageNum()값 넣기
 		rttr.addAttribute("amount", cri.getAmount());
-		
-		
+		// 게시물 수정 이후에도 검색 조회내역을 유지하기 위해 설정
+		rttr.addAttribute("type", cri.getType()); 
+		rttr.addAttribute("keyword", cri.getKeyword());		
 		
 		// forward or redirect
 		return "redirect:/board/list";
@@ -115,6 +118,8 @@ public class BoardController {
 
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		// forward or redirect
 		return "redirect:/board/list";

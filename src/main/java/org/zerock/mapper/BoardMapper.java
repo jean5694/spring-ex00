@@ -38,4 +38,5 @@ public interface BoardMapper {
 		public int update(BoardVO board);
 
 		public int getTotalCount(Criteria cri);
+//		전체 게시물을 얻어오는 쿼리
 }

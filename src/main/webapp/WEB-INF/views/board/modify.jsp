@@ -56,7 +56,9 @@
 					
 					<!-- 수정 이후 기존 목록으로 돌아가기 -->
 					<input hidden name="pageNum" value="${cri.pageNum }" />
-					<input hidden name="amount" value="${cri.amount }" />	
+					<input hidden name="amount" value="${cri.amount }" />		
+					<input hidden name="type" value="${cri.type }" />
+					<input hidden name="keyword" value="${cri.keyword }" />
 				
 					<input class="btn btn-warning" type="submit" value="수정" /> 
 					<input id="board-remove-btn1" class="btn btn-danger" type="button" value="삭제" />
